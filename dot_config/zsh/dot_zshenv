@@ -1,0 +1,66 @@
+# XDG
+export XDG_CONFIG_HOME=${HOME}/.config
+export XDG_CACHE_HOME=${HOME}/.cache
+export XDG_DATA_HOME=${HOME}/.local/share
+export XDG_STATE_HOME=${HOME}/.local/state
+
+# language
+export LANGUAGE="en_US.UTF-8"
+export LANG="${LANGUAGE}"
+export LC_ALL="${LANGUAGE}"
+export LC_CTYPE="${LANGUAGE}"
+
+# editor
+export EDITOR=vim
+export CVSEDITOR="${EDITOR}"
+export SVN_EDITOR="${EDITOR}"
+export GIT_EDITOR="${EDITOR}"
+
+# tools
+export ANDROID_HOME=/Users/yoshi/Library/Android/sdk/
+export PYENV_ROOT="$HOME/.pyenv"
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/mysql/lib
+export DYLD_LIBRARY_PATH="/opt/homebrew/opt/mysql/lib:$DYLD_LIBRARY_PATH"
+export LDFLAGS="-L/opt/homebrew/opt/zstd/lib -L/opt/homebrew/opt/mysql/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zstd/include -I/opt/homebrew/opt/mysql/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/zstd/lib/pkgconfig:/opt/homebrew/opt/mysql/lib/pkgconfig"
+export ZSH="$HOME/.oh-my-zsh"
+export GHQ_ROOT="$HOME/MyDev"
+
+# abbr
+ABBR_REGULAR_ABBREVIATION_GLOB_PREFIXES+=(
+  '*& '
+  '*&& '
+  '*| '
+  '*|| '
+  '*; '
+)
+
+# PATH
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /Library/Apple/usr/bin
+  ${HOME}/bin
+  ${HOME}/.local/bin
+  ${HOME}/.volta/bin
+  ${HOME}/.rbenv/bin
+  ${HOME}/.cargo/bin
+  ${HOME}/fvm/default/bin
+  ${HOME}/go/bin
+  ${HOME}/.local/bin
+  ${HOME}/.jenv/bin
+  ${HOME}/.pyenv/bin
+  ${ANDROID_HOME}/platform-tools
+  ${ANDROID_HOME}/tools
+  /opt/homebrew/opt/sqlite/bin
+  /opt/homebrew/opt/openjdk@17/bin
+)
+
