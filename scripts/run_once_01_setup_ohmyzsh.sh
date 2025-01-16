@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ~/MyDev
+
 echo "Setting up ZDOTDIR in /etc/zshenv..."
 if [ ! -d /etc ]; then
     sudo mkdir -p /etc
