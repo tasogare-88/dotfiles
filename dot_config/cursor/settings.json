@@ -1,0 +1,492 @@
+{
+  // エディタの基本設定
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.linkedEditing": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.insertSpaces": false,
+  "editor.cursorBlinking": "smooth",
+
+  // zen mode設定
+  "zenMode.restore": true,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.fullScreen": true,
+  "zenMode.hideActivityBar": true,
+  "zenMode.showTabs": "multiple",
+  "zenMode.centerLayout": false,
+
+  // フォント設定
+  "editor.fontFamily": "HackGen Console NF",
+  "editor.inlayHints.fontFamily": "HackGen Console NF",
+  "editor.codeLensFontFamily": "HackGen Console NF",
+  "editor.inlineSuggest.fontFamily": "HackGen Console NF",
+  "terminal.integrated.fontFamily": "HackGen Console NF",
+  "scm.inputFontFamily": "HackGen Console NF",
+  "notebook.output.fontFamily": "HackGen Console NF",
+  "debug.console.fontFamily": "HackGen Console NF",
+  "errorLens.fontFamily": "HackGen Console NF",
+  "gitlens.blame.fontFamily": "HackGen Console NF",
+  "markdown.preview.fontFamily": "HackGen Console NF",
+  "rest-client.fontFamily": "HackGen Console NF",
+  "chat.editor.fontFamily": "HackGen Console NF",
+
+  // ファイル設定
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
+
+  // 言語別フォーマッタ設定
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "ms-python.flake8"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[tex]": {
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.tabSize": 2
+  },
+  "[latex]": {
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.tabSize": 2
+  },
+  "[bibtex]": {
+    "editor.tabSize": 2
+  },
+
+  // LaTeX設定
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.dvi",
+    "*.synctex.gz"
+  ],
+  "latex-workshop.latex.outDir": "out",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk",
+      "tools": [
+          "latexmk"
+      ]
+    },
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+          "-silent",
+          "-outdir=%OUTDIR%",
+          "%DOC%"
+      ],
+    },
+  ],
+
+  // ワークベンチ設定
+  "workbench.iconTheme": "ayu-mirage-zed",
+  "workbench.editor.enablePreview": false,
+  "workbench.activityBar.location": "default",
+  "workbench.colorTheme": "Dracula Theme Soft",
+  "workbench.tree.indent": 15,
+  "workbench.editor.revealIfOpen": false,
+  "workbench.list.smoothScrolling": true,
+
+  // Git設定
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "never",
+  "githubPullRequests.pullBranch": "never",
+
+  // その他の設定
+  "window.zoomLevel": 1,
+  "window.commandCenter": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "prettier.requireConfig": true,
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "all",
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Scrolling": "Fade",
+  "animations.CursorAnimation": true,
+  "apc.imports": [
+    "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "find-it-faster.general.showMaximizedTerminal": false,
+  "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
+  "find-it-faster.general.killTerminalAfterUse": true,
+  "lazygit-vscode.configPath": "~/Library/Application Support/lazygit/config.yml",
+  "lazygit-vscode.autoMaximizeWindow": true,
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.formatAndFix",
+      "sequence": ["editor.action.formatDocument", "multiCommand.formatTs"]
+    },
+    {
+      "command": "multiCommand.findFiles",
+      "interval": 220,
+      "sequence": [
+        "workbench.action.toggleMaximizedPanel",
+        "find-it-faster.findFiles"
+      ]
+    },
+    {
+      "command": "multiCommand.findWithinFiles",
+      "interval": 220,
+      "sequence": [
+        "workbench.action.toggleMaximizedPanel",
+        "find-it-faster.findWithinFiles"
+      ]
+    },
+    {
+      "command": "multiCommand.formatTs",
+      "sequence": [
+        {
+          "command": "eslint.executeAutofix",
+          "when": "resourceLangId == javascript || resourceLangId == typescript || resourceLangId == json"
+        }
+      ]
+    },
+  ],
+  "terminal.integrated.showExitAlert": false,
+  "terminal.integrated.smoothScrolling": true,
+
+  // CursorのGUI設定
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 7,
+      "y": 5
+    }
+  },
+  "apc.font.family": "HackGen Console NF",
+  "apc.stylesheet": {
+    ".quick-input-widget": {
+      "position": "absolute !important",
+      "top": "200px !important",
+      "left": "50%",
+      "border-radius": "10px",
+      "border": "1px solid var(--vscode-textSeparator-foreground) !important",
+      "box-shadow": "0 0 60px 0 rgba(0,0,0,0.2) !important"
+    },
+    // left title bar (controls)
+    ".titlebar-left": {
+      "max-width": "70px !important"
+    },
+    // center title bar
+    ".titlebar-center": {
+      "margin": "0 !important"
+    },
+    // arrow buttons
+    ".action-item.menu-entry": {
+      "display": "none !important"
+    },
+    // whole title bar command center container
+    ".action-item.command-center-center": {
+      "background-color": "transparent !important",
+      "border": "none !important",
+      "width": "fit-content !important"
+    },
+    // field
+    ".quick-input-header": {
+      "padding": "0 !important"
+    },
+    // input element container
+    ".quick-input-header > .quick-input-and-message .monaco-inputbox": {
+      "border-radius": "10px 10px 0 0 !important"
+    },
+    // actual input element
+    ".quick-input-header > .quick-input-and-message > .quick-input-filter > .quick-input-box input": {
+      "padding": "8px 10px !important"
+    },
+    // list of results
+    ".quick-input-list > .monaco-list > .monaco-scrollable-element": {
+      "padding": "2px !important"
+    },
+    // status bar set height
+    "div:has(> .statusbar)": {
+      "height": "25px !important",
+      "top": "auto !important",
+      "bottom": "0 !important"
+    },
+    ".statusbar": {
+      "height": "25px !important"
+    },
+    // hides search icon
+    ".codicon.codicon-search.search-icon": {
+      "display": "none !important"
+    },
+    // empty editor background
+    ".editor-group-container.empty.active": {
+      "background-color": "var(--vscode-statusBar-background)"
+    },
+    "div:has(> .tabs-and-actions-container.tabs-border-bottom.empty)": {
+      "background-color": "var(--vscode-statusBar-background) !important"
+    }
+  },
+
+  // Vim設定
+  "vim.leader": "<Space>",
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.easymotion": true,
+  "vim.visualstar": true,
+  "vim.hlsearch": true,
+  "vim.ignorecase": true,
+  "vim.incsearch": true,
+  "vim.whichwrap": "h,l,<,>,[,]",
+
+  // Vimのキーバインド設定
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["u"],
+      "commands": [
+        {
+          "command": "undo"
+        }
+      ]
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": [
+        {
+          "command": "redo"
+        }
+      ]
+    },
+    // ファイル保存
+    {
+      "before": ["<Leader>", "w"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+          "args": []
+        }
+      ]
+    },
+    // ファイルを閉じる
+    {
+      "before": ["<Leader>", "q"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    },
+    // ファイルを保存して閉じる
+    {
+      "before": ["<Leader>", "w", "q"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+          "args": []
+        },
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    },
+    // 現在のファイルのパスをコピー
+    {
+      "before": ["<Leader>", "a"],
+      "commands": ["currentFilePath.copy"]
+    },
+    // 行末へ移動
+    {
+      "before": ["<Leader>", "."],
+      "after": ["$"]
+    },
+    // 行頭へ移動
+    {
+      "before": ["<Leader>", ","],
+      "after": ["^"]
+    },
+    // 対する括弧へ移動
+    {
+      "before": ["<Leader>", "m"],
+      "after": ["%"]
+    },
+    // タブ間の移動（前）
+    {
+      "before": ["<Leader>", "["],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    // タブ間の移動（後）
+    {
+      "before": ["<Leader>", "]"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    // サイドバーを開いてフォーカス
+    {
+      "before": ["<Leader>", "o"],
+      "commands": ["workbench.action.focusSideBar"]
+    },
+    // サイドバーの開閉
+    {
+      "before": ["<Leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // ファイル名検索（配下）
+    {
+      "before": ["<Leader>", "f", "f"],
+      "commands": ["multiCommand.findFiles"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // 全文検索（配下）
+    {
+      "before": ["<Leader>", "f", "w"],
+      "commands": ["multiCommand.findWithinFiles"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // 現在のファイルのパスをコピー
+    {
+      "before": ["<Leader>", "a"],
+      "commands": ["currentFilePath.copy"]
+    },
+    // lsp
+    {
+      "before": ["<Leader>", "l", "f"],
+      "commands": ["multiCommand.formatAndFix"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    {
+      "before": ["<Leader>", "l", "a"],
+      "commands": ["editor.action.quickFix"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    {
+      "before": ["<Leader>", "l", "r"],
+      "commands": ["editor.action.rename"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    {
+      "before": ["<Leader>", "l", "d"],
+      "commands": ["editor.action.showHover"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // Git
+    {
+      "before": ["<Leader>", "g", "l"],
+      "commands": ["gitlens.showQuickFileHistory"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    {
+      "before": ["<Leader>", "g", "g"],
+      "commands": ["lazygit-vscode.toggle"],
+      "when": [
+        "editorFocus && !editorTextFocus && vim.mode == 'Normal'",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Leader>", "j"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["<Leader>", "."],
+      "after": ["$"]
+    },
+    {
+      "before": ["<Leader>", ","],
+      "after": ["^"]
+    },
+    {
+      "before": ["<Leader>", "m"],
+      "after": ["%"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["p"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    // ファイル検索
+    {
+      "before": ["<Leader>", "f", "f"],
+      "commands": ["find-it-faster.findFiles"],
+      "when": ["editorFocus && vim.mode == 'Visual'"]
+    },
+    // 全体検索
+    {
+      "before": ["<Leader>", "f", "w"],
+      "commands": ["find-it-faster.findWithinFiles"],
+      "when": ["editorFocus && vim.mode == 'Visual'"]
+    },
+  ],
+
+  //---------------------------以降、dotfilesへ未反映---------------------------//
+
+}

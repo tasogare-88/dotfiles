@@ -1,0 +1,221 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  //----------------------------------------------------------
+  // 非アクティブ状態の設定
+  //----------------------------------------------------------
+
+  // ファイル名検索（配下）
+  {
+    "key": "space f f",
+    "command": "multiCommand.findFile",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // 全文検索（配下）
+  {
+    "key": "space f w",
+    "command": "multiCommand.findWithinFiles",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // サイドバーの開閉
+  {
+    "key": "space e",
+    "command": "workbench.action.focusSideBar",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // サイドバーを開いてフォーカス
+  {
+    "key": "space o",
+    "command": "workbench.action.focusSideBar",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // Lazygitの起動
+  {
+    "key": "space g g",
+    "command": "lazygit-vscode.toggle",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+
+  //----------------------------------------------------------
+  // エディタにフォーカス時の設定
+  //----------------------------------------------------------
+
+  // エディタの縦分割
+  {
+    "key": "s v",
+    "command": "workbench.action.splitEditor",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  // エディタの横分割
+  {
+    "key": "s h",
+    "command": "workbench.action.splitEditorDown",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  // エディタ間の移動（左）
+  {
+    "key": "ctrl+w h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorFocus && vim.mode == 'Normal' && activeEditorGroupIndex > 1"
+  },
+  // エディタ間の移動（右）
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorFocus && vim.mode == 'Normal' && activeEditorGroupIndex >= 1"
+  },
+  // エディタ間の移動（下）
+  {
+    "key": "ctrl+w j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // エディタ間の移動（上）
+  {
+    "key": "ctrl+w k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  // Vimの挿入モードからのエスケープ
+  {
+    "key": "j",
+    "args": "j",
+    "command": "vscode-neovim.compositeEscape1",
+    "when": "neovim.mode == insert && editorTextFocus && !inputFocus"
+  },
+  // ホバー情報の表示
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+
+  //----------------------------------------------------------
+  // サイドバーにフォーカス時の設定
+  //----------------------------------------------------------
+
+  // リスト内で下へ移動
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で上へ移動
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で折りたたみ
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で選択（開く）
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  // エディタにフォーカス
+  {
+    "key": "space o",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "listFocus && !inputFocus"
+  },
+  // サイドバーの表示切替
+  {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "listFocus && !inputFocus"
+  },
+  // 新しいファイルの作成
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "listFocus && !inputFocus"
+  },
+  // 新しいフォルダの作成
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "listFocus && !inputFocus"
+  },
+  // ファイル・ディレクトリのリネーム
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "listFocus && !inputFocus"
+  },
+  // ファイル・ディレクトリの削除
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "listFocus && !inputFocus"
+  },
+  // 現在のエディタのディレクトリを表示
+  {
+    "key": "shift+r",
+    "command": "workbench.files.action.refreshFilesExplorer",
+    "when": "listFocus && !inputFocus"
+  },
+
+  //----------------------------------------------------------
+  // ターミナルにフォーカス時の設定
+  //----------------------------------------------------------
+
+  // 新しいターミナルの作成
+  {
+    "key": "ctrl+t c",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // ターミナル間での移動（左）
+  {
+    "key": "ctrl+t h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  // ターミナル間での移動（右）
+  {
+    "key": "ctrl+t l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  // ターミナルへのインデックス別フォーカス
+  {
+    "key": "ctrl+t 1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
+    "key": "ctrl+t 2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "ctrl+t 3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
+    "key": "ctrl+t 4",
+    "command": "workbench.action.terminal.focusAtIndex4"
+  },
+  {
+    "key": "ctrl+t 5",
+    "command": "workbench.action.terminal.focusAtIndex5"
+  },
+  // ターミナルの最大化（トグル）
+  {
+    "key": "ctrl+t z",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  // ターミナルの削除
+  {
+    "key": "ctrl+t x",
+    "command": "workbench.action.terminal.detachSession",
+    "when": "terminalFocus"
+  },
+
+  //---------------------------以降、dotfilesへ未反映---------------------------//
+
+]
