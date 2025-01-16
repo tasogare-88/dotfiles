@@ -1,0 +1,148 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" }}
+
+echo "Setting up macOS defaults..."
+
+# ================================
+# Base
+# ================================
+
+# デフォルトのファイル保存先をダウンロードに設定
+defaults write NSGlobalDomain "Downloads" -string "~/Downloads"
+
+# 自動大文字化を無効にする
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# ファイル拡張子を表示する
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# 言語を日本語に設定
+defaults write -g AppleLanguages -array "ja-JP"
+defaults write -g AppleLocale -string "ja_JP"
+
+# ================================
+# Finder
+# ================================
+
+# アニメーションを無効にする
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# 隠しファイルを表示する
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# デスクトップに表示するアイコンを設定
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# ステータスバーを表示する
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# パスバーを表示する
+defaults write com.apple.finder ShowPathbar -bool true
+
+# ファイルの拡張子を表示する
+defaults write com.apple.finder AppleShowAllExtensions -bool true
+
+# パスバーにフルパスを表示する
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# タブバーを表示する
+defaults write com.apple.finder ShowTabView -bool true
+
+# 空のゴミ箱を削除するときに警告を無効にする
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# ================================
+# SystemUIServer
+# ================================
+
+# 日付のフォーマットを設定
+defaults write com.apple.menuextra.clock DateFormat -string 'EEE d MMM HH:mm'
+
+# バッテリーのパーセンテージを表示する
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+# ================================
+# Terminal
+# ================================
+
+# ターミナルの文字エンコーディングをUTF-8に設定
+defaults write com.apple.terminal StringEncodings -array 4
+
+# ================================
+# Dock
+# ================================
+
+# ドックを自動的に隠す
+defaults write com.apple.dock autohide -bool true
+
+# ================================
+# Others
+# ================================
+
+# ネットワークストレージに.DS_Storeを保存しない
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# ダウンロードしたアプリケーションの警告を無効にする
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# クラッシュレポートを無効にする
+defaults write com.apple.CrashReporter DialogType -string "none"
+
+# スペルチェックを無効にする
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# TextEditでテキストファイルを作成するときにテキストファイルを作成する
+defaults write com.apple.TextEdit RichText -int 0
+
+# スクリーンショットの保存形式をPNGに設定
+defaults write com.apple.screencapture type -string "png"
+
+# Google Public DNSを設定
+networksetup -setdnsservers Wi-Fi 2001:4860:4860::8844 2001:4860:4860::8888 8.8.4.4 8.8.8.8
+
+# ================================
+# Trackpad
+# ================================
+
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad DragLock -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHandResting -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadMomentumScroll -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadScroll -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool false
+defaults write -g com.apple.trackpad.scaling -float 2
+defaults write -g com.apple.trackpad.forceClick -bool true
+
+# ================================
+# Keyboard
+# ================================
+
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool true
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g KB_DoubleQuoteOption -string "“abc”"
+defaults write -g KB_SingleQuoteOption -string "‘abc’"
+defaults write -g KB_SpellingLanguage -dict "KB_SpellingLanguageIsAutomatic" -bool true
+
+echo "macOS defaults setup completed."
+
+{{ end }}
