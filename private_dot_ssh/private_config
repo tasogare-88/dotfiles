@@ -1,0 +1,19 @@
+# CodeSandbox SSH Integration
+Include "csb/config"
+# End of CodeSandbox SSH Integration
+
+# GitHub SSH (SSH over HTTPS有効化)
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  IdentityFile ~/.ssh/id_rsa
+  User git
+
+Host *
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+  ServerAliveInterval 15
+  ServerAliveCountMax 30
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentitiesOnly yes
