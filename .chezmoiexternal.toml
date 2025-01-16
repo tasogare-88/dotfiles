@@ -47,7 +47,7 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
-["/Applications/eikana.app"]
+["Applications/eikana.app"]
     type = "archive"
     url = "https://github.com/iMasanari/cmd-eikana/releases/download/v2.2.3/eikana-2.2.3.app.zip"
     exact = true
