@@ -76,8 +76,14 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Dock
 # ================================
 
-# ドックを自動的に隠す
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock largesize -int 79
+defaults write com.apple.dock tilesize -int 53
+defaults write com.apple.dock mineffect -string "genie"
+defaults write com.apple.dock orientation -string "bottom"
+defaults write com.apple.dock "expose-group-apps" -bool true
+defaults write com.apple.dock "mru-spaces" -bool false
 
 # ================================
 # Others
@@ -144,5 +150,7 @@ defaults write -g KB_SingleQuoteOption -string "‘abc’"
 defaults write -g KB_SpellingLanguage -dict "KB_SpellingLanguageIsAutomatic" -bool true
 
 echo "macOS defaults setup completed."
+echo "Please restart your computer to apply the changes."
+echo "Next, please set up github ssh key."
 
 {{ end }}
