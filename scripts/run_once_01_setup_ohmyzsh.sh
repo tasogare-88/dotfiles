@@ -2,6 +2,11 @@
 
 mkdir -p ~/MyDev
 
+if [ "$SHELL" != "/bin/zsh" ]; then
+    echo "Changing default shell to zsh..."
+    chsh -s $(which zsh)
+fi
+
 echo "Setting up ZDOTDIR in /etc/zshenv..."
 if [ ! -d /etc ]; then
     sudo mkdir -p /etc
