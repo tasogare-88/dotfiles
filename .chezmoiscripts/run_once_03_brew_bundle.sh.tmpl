@@ -2,15 +2,43 @@
 
 {{ if eq .chezmoi.os "darwin" }}
 
+set +e
+
 # 現在のシェルでHomebrewのPATHを設定（念のため）
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Installing packages from Brewfile..."
+echo "Note: Installation will continue even if some packages fail to install."
 
-brew bundle --global --file="$HOME/.Brewfile" --no-lock || true
+# Brewfileの各行を個別に処理
+while IFS= read -r line || [ -n "$line" ]; do
+    # コメント行と空行をスキップ
+    if [[ -z "${line// }" || "$line" =~ ^# ]]; then
+        continue
+    fi
 
-# インストール失敗したパッケージの一覧を表示
-echo "Note: Some packages may have failed to install. Please check the logs above."
+    echo "Processing: $line"
+    if [[ "$line" =~ ^tap ]]; then
+        # tapコマンドの実行
+        brew tap $(echo "$line" | cut -d'"' -f2) || echo "Failed to tap, continuing..."
+    elif [[ "$line" =~ ^brew ]]; then
+        # brewコマンドの実行
+        package=$(echo "$line" | cut -d'"' -f2 | cut -d',' -f1)
+        brew install "$package" || echo "Failed to install $package, continuing..."
+    elif [[ "$line" =~ ^cask ]]; then
+        # caskコマンドの実行
+        cask=$(echo "$line" | cut -d'"' -f2 | cut -d',' -f1)
+        brew install --cask "$cask" || echo "Failed to install cask $cask, continuing..."
+    elif [[ "$line" =~ ^mas ]]; then
+        # masコマンドの実行
+        app=$(echo "$line" | cut -d'"' -f2)
+        id=$(echo "$line" | grep -o 'id: [0-9]*' | cut -d' ' -f2)
+        mas install "$id" || echo "Failed to install Mac App Store app $app, continuing..."
+    fi
+done < "$HOME/.Brewfile"
+
+echo "Brewfile processing completed."
+echo "Note: Some packages might have failed to install. Please check the logs above."
 echo "You can try to install failed packages manually later."
 
 {{ end }}
