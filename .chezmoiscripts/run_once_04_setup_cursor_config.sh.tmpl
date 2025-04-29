@@ -4,6 +4,13 @@
 
 echo "Setting up Cursor configuration..."
 
+# Cursorのインストールを確認
+if ! command -v cursor &> /dev/null; then
+    echo "Cursor is not installed. Please ensure it's installed via Homebrew first."
+    exit 1
+fi
+
+# 設定ディレクトリを作成
 mkdir -p ~/Library/Application\ Support/Cursor/User
 
 # 既存のファイルをバックアップして削除する関数
@@ -21,8 +28,18 @@ setup_link() {
     ln -sf "$target" "$link"
 }
 
+# 設定ファイルのシンボリックリンクを作成
 setup_link ~/.config/cursor/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
 setup_link ~/.config/cursor/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
+
+# Cursorを一度起動して終了（初期化のため）
+echo "Initializing Cursor..."
+open -a Cursor
+sleep 5
+pkill -x Cursor
+
+# 少し待機してから拡張機能のインストールを開始
+sleep 3
 
 echo "Installing Cursor extensions..."
 while IFS= read -r extension || [ -n "$extension" ]; do
@@ -30,5 +47,7 @@ while IFS= read -r extension || [ -n "$extension" ]; do
         cursor --install-extension "$extension"
     fi
 done < ~/.config/cursor/extensions.txt
+
+echo "Cursor setup completed."
 
 {{ end }}
