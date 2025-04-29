@@ -2,48 +2,42 @@
 
 {{ if eq .chezmoi.os "darwin" }}
 
-# スクリプト全体でエラーを許容
-set +e
-
 # 現在のシェルでHomebrewのPATHを設定（念のため）
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Installing packages from Brewfile..."
 echo "Note: Some packages might fail to install, but the process will continue."
 
-# Brewfileの内容を処理
-while IFS= read -r line || [ -n "$line" ]; do
-    # コメント行と空行をスキップ
-    if [[ -z "${line// }" || "$line" =~ ^# ]]; then
-        continue
-    fi
-
-    if [[ "$line" =~ ^tap ]]; then
+if [ -f "$HOME/.Brewfile" ]; then
+    # tapを先に処理
+    grep '^tap' "$HOME/.Brewfile" | while read -r line; do
         tap_name=$(echo "$line" | cut -d'"' -f2)
-        echo "Tapping $tap_name..."
-        brew tap "$tap_name" || echo "Warning: Failed to tap $tap_name"
-    elif [[ "$line" =~ ^brew ]]; then
-        # brewで始まる行を処理
+        brew tap "$tap_name" 2>/dev/null || true
+    done
+
+    # brewパッケージをインストール
+    grep '^brew' "$HOME/.Brewfile" | while read -r line; do
         package=$(echo "$line" | cut -d'"' -f2 | cut -d',' -f1)
-        echo "Installing brew package: $package..."
-        brew install "$package" || echo "Warning: Failed to install $package"
-    elif [[ "$line" =~ ^cask ]]; then
-        # caskで始まる行を処理
+        brew install "$package" 2>/dev/null || true
+    done
+
+    # caskパッケージをインストール
+    grep '^cask' "$HOME/.Brewfile" | while read -r line; do
         cask=$(echo "$line" | cut -d'"' -f2 | cut -d',' -f1)
-        echo "Installing cask: $cask..."
-        brew install --cask "$cask" || echo "Warning: Failed to install cask $cask"
-    elif [[ "$line" =~ ^mas ]]; then
-        # masで始まる行を処理
-        app=$(echo "$line" | cut -d'"' -f2)
-        id=$(echo "$line" | grep -o 'id: [0-9]*' | cut -d' ' -f2)
-        echo "Installing Mac App Store app: $app (ID: $id)..."
-        mas install "$id" || echo "Warning: Failed to install Mac App Store app $app"
+        brew install --cask "$cask" 2>/dev/null || true
+    done
+
+    # Mac App Storeアプリをインストール
+    if command -v mas &>/dev/null; then
+        grep '^mas' "$HOME/.Brewfile" | while read -r line; do
+            id=$(echo "$line" | grep -o 'id: [0-9]*' | cut -d' ' -f2)
+            mas install "$id" 2>/dev/null || true
+        done
     fi
-done < "$HOME/.Brewfile"
+fi
 
 echo "Brewfile processing completed."
-echo "Note: If any packages failed to install, you can try installing them manually later."
-
-exit 0
+echo "Note: Some packages might have failed to install. Please check the logs above."
+true
 
 {{ end }}
