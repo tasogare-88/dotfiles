@@ -11,27 +11,32 @@ echo "📦 Setting up oh-my-zsh..."
 chmod +x .chezmoiscripts/run_once_01_setup_ohmyzsh.sh
 ./.chezmoiscripts/run_once_01_setup_ohmyzsh.sh
 
-# 2. Homebrew のインストールと Brewfile からのパッケージインストール
-echo "🍺 Installing Homebrew and packages..."
+# 2. Homebrew のインストール
+echo "🍺 Installing Homebrew..."
 chmod +x .chezmoiscripts/run_once_02_install_homebrew.sh
 ./.chezmoiscripts/run_once_02_install_homebrew.sh
 
-# 3. Cursor の設定
+# 3. Homebrew パッケージのインストール
+echo "📦 Installing Homebrew packages..."
+chmod +x .chezmoiscripts/run_once_03_brew_bundle.sh
+./.chezmoiscripts/run_once_03_brew_bundle.sh
+
+# 4. Cursor の設定
 echo "⌨️ Setting up Cursor configuration..."
-chmod +x .chezmoiscripts/run_once_03_setup_cursor_config.sh
-./.chezmoiscripts/run_once_03_setup_cursor_config.sh
+chmod +x .chezmoiscripts/run_once_04_setup_cursor_config.sh
+./.chezmoiscripts/run_once_04_setup_cursor_config.sh
 
-# 4. macOS のデフォルト設定
+# 5. macOS のデフォルト設定
 echo "🍎 Configuring macOS defaults..."
-chmod +x .chezmoiscripts/run_once_04_setup_macos_defaults.sh
-./.chezmoiscripts/run_once_04_setup_macos_defaults.sh
+chmod +x .chezmoiscripts/run_once_05_setup_macos_defaults.sh
+./.chezmoiscripts/run_once_05_setup_macos_defaults.sh
 
-# 5. GitHub SSH の設定
+# 6. GitHub SSH の設定
 echo "🔑 Setting up GitHub SSH..."
-chmod +x .chezmoiscripts/run_once_05_setup_github_ssh.sh
-./.chezmoiscripts/run_once_05_setup_github_ssh.sh
+chmod +x .chezmoiscripts/run_once_06_setup_github_ssh.sh
+./.chezmoiscripts/run_once_06_setup_github_ssh.sh
 
-# 6. chezmoi の適用
+# 7. chezmoi の適用
 echo "🏠 Applying chezmoi configuration..."
 chezmoi apply
 

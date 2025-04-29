@@ -11,6 +11,8 @@ echo "Installing Homebrew..."
 echo "Setting up Homebrew environment..."
 mkdir -p "$HOME/.config/zsh"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.config/zsh/.zshenv"
+
+# 現在のシェルでHomebrewのPATHを設定
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source "$HOME/.config/zsh/.zshenv"

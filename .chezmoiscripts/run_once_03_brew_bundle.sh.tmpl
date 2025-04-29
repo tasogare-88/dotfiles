@@ -1,0 +1,11 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" }}
+
+# 現在のシェルでHomebrewのPATHを設定（念のため）
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+echo "Installing packages from Brewfile..."
+brew bundle --global --file="$HOME/.Brewfile"
+
+{{ end }}
