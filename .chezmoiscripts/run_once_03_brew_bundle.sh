@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# エラーが発生してもスクリプトを継続するように設定
+# エラーが発生してもスクリプトを継続するように設定 (.chezmoiscriptsの仕様上むすかしいみたい)
 set +e
 set +o pipefail
 
