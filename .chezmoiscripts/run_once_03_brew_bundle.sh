@@ -1,7 +1,5 @@
 #!/bin/bash
 
-{{ if eq .chezmoi.os "darwin" }}
-
 # エラーが発生してもスクリプトを継続するように設定
 set +e
 set +o pipefail
@@ -19,5 +17,3 @@ echo "Brewfile processing completed."
 echo "Note: If any packages failed to install, you can try installing them manually later."
 
 exit 0
-
-{{ end }}
