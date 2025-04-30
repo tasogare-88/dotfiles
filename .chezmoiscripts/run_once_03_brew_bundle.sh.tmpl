@@ -6,38 +6,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Installing packages from Brewfile..."
-echo "Note: Some packages might fail to install, but the process will continue."
-
-if [ -f "$HOME/.Brewfile" ]; then
-    # tapを先に処理
-    grep '^tap' "$HOME/.Brewfile" | while read -r line; do
-        tap_name=$(echo "$line" | cut -d'"' -f2)
-        brew tap "$tap_name" 2>/dev/null || true
-    done
-
-    # brewパッケージをインストール
-    grep '^brew' "$HOME/.Brewfile" | while read -r line; do
-        package=$(echo "$line" | cut -d'"' -f2 | cut -d',' -f1)
-        brew install "$package" 2>/dev/null || true
-    done
-
-    # caskパッケージをインストール
-    grep '^cask' "$HOME/.Brewfile" | while read -r line; do
-        cask=$(echo "$line" | cut -d'"' -f2 | cut -d',' -f1)
-        brew install --cask "$cask" 2>/dev/null || true
-    done
-
-    # Mac App Storeアプリをインストール
-    if command -v mas &>/dev/null; then
-        grep '^mas' "$HOME/.Brewfile" | while read -r line; do
-            id=$(echo "$line" | grep -o 'id: [0-9]*' | cut -d' ' -f2)
-            mas install "$id" 2>/dev/null || true
-        done
-    fi
-fi
-
-echo "Brewfile processing completed."
-echo "Note: Some packages might have failed to install. Please check the logs above."
-true
+brew bundle --global --file="$HOME/.Brewfile"
 
 {{ end }}
