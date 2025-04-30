@@ -58,6 +58,7 @@ path=(
   ${HOME}/.local/bin
   ${HOME}/.jenv/bin
   ${HOME}/.pyenv/bin
+  ${HOME}/.nodebrew/current/bin
   ${ANDROID_HOME}/platform-tools
   ${ANDROID_HOME}/tools
   /opt/homebrew/opt/sqlite/bin
