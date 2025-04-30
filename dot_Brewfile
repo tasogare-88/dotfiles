@@ -1,10 +1,6 @@
 tap "aws/tap"
 tap "dart-lang/dart"
 tap "emqx/mqttx"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
 tap "jesseduffield/lazygit"
 tap "leoafarias/fvm"
 tap "stripe/stripe-cli"
@@ -82,7 +78,6 @@ brew "jesseduffield/lazygit/lazygit"
 brew "leoafarias/fvm/fvm"
 brew "stripe/stripe-cli/stripe"
 cask "arc"
-cask "cheatsheet"
 cask "cursor"
 cask "docker"
 cask "font-hackgen"
@@ -92,9 +87,3 @@ cask "ngrok"
 cask "postman"
 cask "sequel-ace"
 cask "wezterm@nightly"
-mas "Apple Configurator", id: 1037126344
-mas "CopyLess 2", id: 993841014
-mas "iMovie", id: 408981434
-mas "Kindle", id: 302584613
-mas "Slack", id: 803453959
-mas "Xcode", id: 497799835
